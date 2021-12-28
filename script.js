@@ -1,65 +1,49 @@
 'use strict';
-const numberOfFilms = +prompt('Сколько фильмов вы уже смотрели?', '');
 
+let num = 20;
 
-const personalMovieDB = {
-	count: numberOfFilms,
-	movies: {},
-	actors: {},
-	genres: [],
-	privat: false
-};
-
-//const a = prompt('Один из последних просмотренных фильмов?', ''),
-//	b = prompt('Насколько оцените его?', ''),
-//	c = prompt('Один из последних просмотренных фильмов?', ''),
-//	d = prompt('Насколько оцените его?', '');
-
-//personalMovieDB.movies[a] = b;
-//personalMovieDB.movies[c] = d;
-
-//let i = 0;
-//while (i < 2) {
-//	let a = prompt('Один из последних просмотренных фильмов?', ''),
-//		b = prompt('Насколько оцените его?', '');
-//	personalMovieDB.movies[a] = b;
-//	i++;
-//}
-
-
-for (let i = 0; i < 2; i++) {
-	let a = prompt('Один из последних просмотренных фильмов?', ''),
-		b = prompt('Насколько оцените его?', '');
-	if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-		personalMovieDB.movies[a] = b;
-		console.log('done');
-	} else {
-		console.log('error');
-		i--;
-	}
+function showFirstMessage(text) {
+	console.log(text);
+	let num = 10;
+	console.log(num);
 }
 
-//let i = 0;
-//do {
-//	if (personalMovieDB.count < 10 && personalMovieDB.count > 0) {
-//		alert('Просмотрено довольно мало фильмов');
-//	} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-//		alert('Вы класический зритель');
-//	} else if (personalMovieDB.count > 30) {
-//		alert('Вы киноман');
-//	} else {
-//		alert('Ошибка');
-//		break;
-//	}
-//	let a = prompt('Один из последних просмотренных фильмов?', ''),
-//		b = prompt('Насколько оцените его?', '');
-//	if (a === '' || b === '' || a === null || b === null || a.length > 50) {
-//		continue;
-//	}
-//	personalMovieDB.movies[a] = b;
-//	i++;
-//} while (i < 2);
+showFirstMessage("Hello, world");
+console.log(num);
 
 
-console.log(personalMovieDB);
+//function calc(a, b) {
+//	return (a + b);
+//}
 
+//console.log(calc(5, 6));
+//console.log(calc(1, 9));
+//console.log(calc(15, 4));
+
+
+// function declaration
+function ret() {
+	let num = 50;
+
+	// 
+
+	return num;
+}
+// ----------------
+
+const anotherNum = ret();
+console.log(anotherNum);
+
+//function expression 
+const logger = function () {
+	console.log("Hello");
+};
+// -----------------
+
+logger();
+
+// Arrow function
+const calc = (a, b) => {
+	console.log('1');
+	return a + b;
+};
