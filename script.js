@@ -1,30 +1,73 @@
 'use strict';
 
-const str = 'Hello';
-const arr = [1, 3, 5];
+let numberOfFilms;
 
-//console.log(str[1]);
+function start() {
+	numberOfFilms = +prompt('Сколько фильмов вы уже смотрели?', '');
 
-//console.log(str[1] = 'd');
+	while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+		numberOfFilms = +prompt('Сколько фильмов вы уже смотрели?', '');
+	}
+}
 
-console.log(str.toLocaleUpperCase());
-console.log(str.toLocaleLowerCase());
-console.log(str);
-//console.log(arr.length);
+start();
 
-const fruit = "Some fruit";
-console.log(fruit.indexOf("q"));
+const personalMovieDB = {
+	count: numberOfFilms,
+	movies: {},
+	actors: {},
+	genres: [],
+	privat: false
+};
 
-const logg = "Hello world";
-console.log(logg.slice(6, 11));
+function rememberMyFilms() {
+	for (let i = 0; i < 2; i++) {
+		let a = prompt('Один из последних просмотренных фильмов?', ''),
+			b = prompt('Насколько оцените его?', '');
+		if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+			personalMovieDB.movies[a] = b;
+			console.log('done');
+		} else {
+			console.log('error');
+			i--;
+		}
+	}
+}
 
-console.log(logg.substring(6, 11));
+//rememberMyFilms();
 
-console.log(logg.substr(6, 5));
 
-const num = 15.5;
-console.log(Math.round(num));
 
-const test = "12.2px";
-console.log(parseInt(test));
-//console.log(parseFloat(test));
+function detectPersonalLevel() {
+	if (personalMovieDB.count < 10) {
+		alert('Просмотрено довольно мало фильмов');
+	} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+		alert('Вы класический зритель');
+	} else if (personalMovieDB.count >= 30) {
+		alert('Вы киноман');
+	} else {
+		alert('Ошибка');
+	}
+}
+
+//detectPersonalLevel();
+
+function showMyDB() {
+	if (personalMovieDB.privat == false) {
+		console.log(personalMovieDB);
+	}
+}
+
+function writeYourGenders() {
+	if (personalMovieDB.count >= 3) {
+		for (let i = 0; i < 3; i++) {
+			personalMovieDB.genres[i] = prompt(`Ваш любимый жарн под номером ${i + 1}?`);;
+		}
+	}
+}
+
+writeYourGenders();
+showMyDB();
+
+
+
