@@ -1,38 +1,103 @@
 "use strict";
 
-const arr = [1, 10, 32, 16, 8];
-arr.sort(compareNum);
-console.log(arr);
+//let a = 5,
+//	b = a;
 
-function compareNum(a, b) {
-	return a - b;
+//b = b + 5;
+
+//console.log(b);
+//console.log(a);
+
+//const obj = {
+//	a: 5,
+//	b: 10
+//};
+
+//const copy = obj; //Ссылку 
+
+//copy.a = 10;
+
+//console.log(copy);
+//console.log(obj);
+
+//function copy(mainObj) {
+//	let objCopy = {};
+
+//	for (let key in mainObj) {
+//		objCopy[key] = mainObj[key];
+//	}
+//	return objCopy;
+//}
+
+const numbersObj = {
+	a: 2,
+	b: 6,
+	c: {
+		x: 10,
+		y: 5
+	}
+};
+
+//const copyNumbersObj = copy(numbersObj);
+
+//copyNumbersObj.a = 10;
+//copyNumbersObj.c.x = 20;
+
+//console.log(copyNumbersObj);
+//console.log(numbersObj);
+const add = {
+	d: 42,
+	e: 14
+};
+
+const clone = (Object.assign({}, add));
+
+clone.d = 20;
+
+//console.log(add);
+//console.log(clone);
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[1] = 'afafdsfsf';
+
+console.log(oldArray);
+console.log(newArray);
+
+const video = ['youtube', 'vimeo', 'rutube'],
+	blogs = ['wordpress', 'livejournal', 'blogger'],
+	internet = [...video, ...blogs, 'vk', 'facebook'];
+
+
+console.log(internet);
+
+function log(a, b, c) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
 }
 
+const num = [2, 5, 7];
 
-//arr[99] = 0;
-//console.log(arr.length);
-//console.log(arr);
+log(...num);
 
-//arr.forEach(function (item, i, arr) {
-//	console.log(`${i}: ${item} внутри масссива ${arr}`);
-//});
+const array = ["a", "b"];
 
-//arr.pop();
-//arr.push(10);
+const newAarray = [...array];
+newAarray[0] = "afasf";
 
-//console.log(arr);
+console.log(array);
+console.log(newAarray);
 
 
-//for (let i = 0; i < arr.length; i++) {
-//	console.log(arr[i]);
-//}
+const q = {
+	top: 9,
+	bottom: 12
+};
 
+const newQ = { ...q };
+newQ.top = 12;
 
-//for (let value of arr) {
-//	console.log(value);
-//}
-
-//const str = prompt("", '');
-//const products = str.split(", ");
-//products.sort();
-//console.log(products.join('; '));
+console.log(q);
+console.log(newQ);
