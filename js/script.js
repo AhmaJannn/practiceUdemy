@@ -1,42 +1,45 @@
 "use strict";
 
-const wrapper = document.querySelector('.btn-block'),
-	btns = wrapper.querySelectorAll('button');
+window.addEventListener('DOMContentLoaded', () => {
 
-//console.log(btns[0].classList.length);
-//console.log(btns[0].classList.item(1));
-//console.log(btns[0].classList.add('red'));
-//console.log(btns[0].classList.remove('blue'));
-//console.log(btns[0].classList.toggle('blue'));
+	const tabs = document.querySelectorAll('.tabheader__item'),
+		tabsContent = document.querySelectorAll('.tabcontent'),
+		tabsParent = document.querySelector('.tabheader__items');
 
-//if (btns[0].classList.contains('red')) {
-//	console.log('red');
-//}
+	function hideTabContent() {
+		tabsContent.forEach(item => {
+			//item.style.display = 'none';
+			item.classList.add('hide');
+			item.classList.remove('show', 'fade');
 
-btns[0].addEventListener('click', () => {
-	//if (btns[1].classList.contains('red')) {
-	//	btns[1].classList.remove('red');
-	//} else {
-	//	btns[1].classList.add('red');
-	//}
+		});
 
-	btns[1].classList.toggle('red');
-});
-
-//console.log(btns[0].className);
-
-wrapper.addEventListener('click', event => {
-	if (event.target && event.target.matches("button.red")/*event.target.tagName == "BUTTON"*/ /*event.target.classList.contains('blue')*/) {
-		console.log("Hello");
+		tabs.forEach(item => {
+			item.classList.remove('tabheader__item_active');
+		});
 	}
+
+	function showTabContent(i = 0) {
+		//tabsContent[i].style.display = 'block';
+		tabsContent[i].classList.add('show', 'fade');
+		tabsContent[i].classList.remove('hide');
+		tabs[i].classList.add('tabheader__item_active');
+	}
+
+	hideTabContent();
+	showTabContent();
+
+	tabsParent.addEventListener('click', (event) => {
+		const target = event.target;
+
+		if (target && target.classList.contains('tabheader__item')) {
+			tabs.forEach((item, i) => {
+				if (target == item) {
+					hideTabContent();
+					showTabContent(i);
+				}
+			});
+		}
+	});
+
 });
-
-//btns.forEach(btn => {
-//	btn.addEventListener('click', () => {
-//		console.log("Hello");
-//	});
-//});
-
-const btn = document.createElement('button');
-btn.classList.add('red');
-wrapper.append(btn);
