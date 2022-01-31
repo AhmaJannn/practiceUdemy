@@ -1,49 +1,38 @@
 "use strict";
-//const timeId = setTimeout(function (text) {
-//	console.log(text);
-//}, 2000, 'Hello, world');
 
-const btn = document.querySelector('.btn');
+const now = new Date();
+//new Date.parse('2022-01-31');
 
-let timerId,
-	i = 0;
+//console.log(now.setHours(18));
+console.log(now);
 
-function myAnimation() {
-	const elem = document.querySelector('.box');
-	let pos = 0;
+//const now = new Date('2022-02-11');
+//const now = new Date(2000, 6, 2, 20);
+//const now = new Date(-99999999999999);
 
-	const id = setInterval(frame, 10);
-	function frame() {
-		if (pos == 300) {
-			setInterval();
-		} else {
-			pos++;
-			elem.style.top = pos + 'px';
-			elem.style.left = pos + 'px';
-		}
-	}
+//console.log(now);
+//console.log(now.getFullYear());
+//console.log(now.getMonth());
+//console.log(now.getDate());
+//console.log(now.getHours());
+//console.log(now.getMinutes());
+//console.log(now.getSeconds());
+//console.log(now.getMilliseconds());
+//console.log(now.getDay());
+//console.log(now.getHours());
+//console.log(now.getUTCHours());
+//console.log(now.getTimezoneOffset());
+//console.log(now.getTime());
+
+let start = new Date();
+let some;
+
+for (let i = 0; i < 100000; i++) {
+	some = i + i ** 3;
 }
 
-btn.addEventListener('click', myAnimation);
+console.log(some);
 
-//btn.addEventListener('click', () => {
-//	//const timerId = setTimeout(logger, 2000);
-//	const timerId = setInterval(logger, 500);
-//});
+let end = new Date();
 
-////setTimeout(logger, 2000);
-
-//function logger() {
-//	if (i === 3) {
-//		setInterval(timerId);
-//	} else {
-//		console.log('text');
-//		i++;
-//	}
-//}
-
-//let id = setTimeout(function log() {
-//	console.log('Hello');
-//	id = setTimeout(log, 500);
-//}, 5000);
-
+alert(`Цикл отработал за ${end - start} миллисекунд`);
