@@ -1,38 +1,38 @@
-"use strict";
+'use strict';
 
-const now = new Date();
-//new Date.parse('2022-01-31');
+console.dir(document);
 
-//console.log(now.setHours(18));
-console.log(now);
+const box = document.querySelector('.box'),
+	btn = document.querySelector('button');
 
-//const now = new Date('2022-02-11');
-//const now = new Date(2000, 6, 2, 20);
-//const now = new Date(-99999999999999);
+const clientWidth = box.clientWidth;
+const clientHeight = box.clientHeight;
 
-//console.log(now);
-//console.log(now.getFullYear());
-//console.log(now.getMonth());
-//console.log(now.getDate());
-//console.log(now.getHours());
-//console.log(now.getMinutes());
-//console.log(now.getSeconds());
-//console.log(now.getMilliseconds());
-//console.log(now.getDay());
-//console.log(now.getHours());
-//console.log(now.getUTCHours());
-//console.log(now.getTimezoneOffset());
-//console.log(now.getTime());
+const offsetWidth = box.offsetWidth;
+const offsetHeight = box.offsetHeight;
 
-let start = new Date();
-let some;
+const scrollWidth = box.scrollWidth;
+const scrollHeight = box.scrollHeight;
 
-for (let i = 0; i < 100000; i++) {
-	some = i + i ** 3;
-}
+console.log(clientWidth, clientHeight);
+console.log(offsetWidth, offsetHeight);
+console.log(scrollWidth, scrollHeight);
 
-console.log(some);
+btn.addEventListener('click', event => {
+	event.preventDefault();
 
-let end = new Date();
+	//box.style.height = scrollHeight + 'px';
+	console.log(box.scrollTop);
+});
 
-alert(`Цикл отработал за ${end - start} миллисекунд`);
+console.log(box.getBoundingClientRect());
+console.log(box.getBoundingClientRect().top);
+
+const style = window.getComputedStyle(box);
+console.log(style.display);
+
+console.log(document.documentElement.scrollHeight);
+
+//document.documentElement.scrollTop = 0; -- для браузера в консоли 
+//window.scrollBy(0, 400); -- относительно текущего положения 
+//window.scrollTo(0, 400); -- относительно всей страницы 
