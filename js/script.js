@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// Timer 
 
-	const deadline = '2022-02-02';
+	const deadline = '2022-02-11';
 
 	function getTimeRemaining(endTime) {
 		const t = Date.parse(endTime) - Date.parse(new Date()),
@@ -84,17 +84,63 @@ window.addEventListener('DOMContentLoaded', () => {
 		function updateClock() {
 			const t = getTimeRemaining(endTime);
 
-			days.innerHTML = getZero(t.days);
-			hours.innerHTML = getZero(t.hours);
-			minutes.innerHTML = getZero(t.minutes);
-			seconds.innerHTML = getZero(t.seconds);
-
 			if (t.total <= 0) {
+				days.innerHTML = "00";
+				hours.innerHTML = "00";
+				minutes.innerHTML = "00";
+				seconds.innerHTML = "00";
 				clearInterval(timeInterval);
+			} else {
+				days.innerHTML = getZero(t.days);
+				hours.innerHTML = getZero(t.hours);
+				minutes.innerHTML = getZero(t.minutes);
+				seconds.innerHTML = getZero(t.seconds);
 			}
+
+
 		}
 	}
 
 	setClock('.timer', deadline);
+
+	// Modal
+
+	const modalBtn = document.querySelectorAll('[data-modal]'),
+		modalWindow = document.querySelector('.modal'),
+		modalClose = document.querySelector('[data-close]');
+
+	modalBtn.forEach(element => {
+		element.addEventListener('click', event => {
+			event.preventDefault();
+
+			modalWindow.classList.add('show');
+			modalWindow.classList.remove('hide');
+			//modalWindow.classList.toggle('show');
+			document.body.style.overflow = 'hidden';
+		});
+	});
+
+	function closeModal() {
+		modalWindow.classList.add('hide');
+		modalWindow.classList.remove('show');
+		//modalWindow.classList.toggle('show');
+		document.body.style.overflow = '';
+	}
+
+	modalClose.addEventListener('click', closeModal);
+
+	modalWindow.addEventListener('click', (event) => {
+		const target = event.target;
+
+		if (target === modalWindow) {
+			closeModal();
+		}
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.code === 'Escape' && modalWindow.classList.contains('show')) {
+			closeModal();
+		}
+	});
 
 });
