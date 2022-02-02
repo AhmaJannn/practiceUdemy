@@ -21,12 +21,13 @@ console.log(scrollWidth, scrollHeight);
 btn.addEventListener('click', event => {
 	event.preventDefault();
 
-	//box.style.height = scrollHeight + 'px';
-	console.log(box.scrollTop);
+	box.style.height = scrollHeight + 'px';
+	//console.log(box.scrollTop);
 });
 
 console.log(box.getBoundingClientRect());
 console.log(box.getBoundingClientRect().top);
+console.log(box.offsetTop);
 
 const style = window.getComputedStyle(box);
 console.log(style.display);
@@ -36,3 +37,6 @@ console.log(document.documentElement.scrollHeight);
 //document.documentElement.scrollTop = 0; -- для браузера в консоли 
 //window.scrollBy(0, 400); -- относительно текущего положения 
 //window.scrollTo(0, 400); -- относительно всей страницы 
+
+console.log(box.clientTop);
+console.log(box.clientLeft);
