@@ -1,42 +1,31 @@
-'use strict';
+"use strict";
 
-console.dir(document);
+//Функция является объектом, в неё можно записать методы и свойтсва 
+//Для создания типа данных используется new
 
-const box = document.querySelector('.box'),
-	btn = document.querySelector('button');
+//const num = new Number(2);
+//const num = new Function(2);
 
-const clientWidth = box.clientWidth;
-const clientHeight = box.clientHeight;
+function User(name, id) {
+	this.name = name;
+	this.id = id;
+	this.human = true;
+	this.hello = function () {
+		console.log(`Hello ${this.name}`);
+	};
+}
 
-const offsetWidth = box.offsetWidth;
-const offsetHeight = box.offsetHeight;
+User.prototype.exit = function () {
+	console.log(`Пользователь ${this.name} ушёл`);
+};
 
-const scrollWidth = box.scrollWidth;
-const scrollHeight = box.scrollHeight;
+const ivan = new User('Ivan', 23);
+const alex = new User('Alex', 18);
 
-console.log(clientWidth, clientHeight);
-console.log(offsetWidth, offsetHeight);
-console.log(scrollWidth, scrollHeight);
+ivan.exit();
 
-btn.addEventListener('click', event => {
-	event.preventDefault();
+ivan.hello();
+alex.hello();
 
-	box.style.height = scrollHeight + 'px';
-	//console.log(box.scrollTop);
-});
-
-console.log(box.getBoundingClientRect());
-console.log(box.getBoundingClientRect().top);
-console.log(box.offsetTop);
-
-const style = window.getComputedStyle(box);
-console.log(style.display);
-
-console.log(document.documentElement.scrollHeight);
-
-//document.documentElement.scrollTop = 0; -- для браузера в консоли 
-//window.scrollBy(0, 400); -- относительно текущего положения 
-//window.scrollTo(0, 400); -- относительно всей страницы 
-
-console.log(box.clientTop);
-console.log(box.clientLeft);
+console.log(ivan);
+console.log(alex);
