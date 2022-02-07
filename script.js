@@ -1,33 +1,13 @@
 "use strict";
 
-class Rectangle {
-	constructor(height, width) {
-		this.height = height;
-		this.width = width;
-	}
+const log = function (a, b, ...rest) {
+	console.log(a, b, rest);
+};
 
-	calcArea() {
-		return this.height * this.width;
-	}
+log('basic', 'rest', 'operator', 'usage');
+
+function calcOrDouble(number, basis = 3) {
+	//basis = basis || 2; по умолчанию (УСТАРЕЛО)
+	console.log(number * basis);
 }
-
-class ColoredRectangleWithText extends Rectangle {
-	constructor(height, width, text, bgColor) {
-		super(height, width);
-		this.text = text;
-		this.bgColor = bgColor;
-	}
-
-	showMyProps() {
-		console.log(`Текст: ${this.text}, Цвет: ${this.bgColor}`);
-	}
-}
-
-const div = new ColoredRectangleWithText(25, 10, 'Hello, world', 'red');
-div.showMyProps();
-console.log(div.calcArea());
-
-//const long = new Rectangle(20, 100);
-//const squre = new Rectangle(10, 20);
-//console.log(long.calcArea());
-//console.log(squre.calcArea());
+calcOrDouble(3);
