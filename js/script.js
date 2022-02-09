@@ -3,15 +3,17 @@
 const inputRub = document.querySelector('#rub'),
 	inputUsd = document.querySelector('#usd');
 
+
+
 inputRub.addEventListener('input', () => {
 	const request = new XMLHttpRequest();
 
 	//request.open(method, url, async, login, pass);
 
 	// Сходи в магазин
-	request.open('GET', 'js/current.json');
-	request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-	request.send();
+	request.open('GET', 'js/current.json'); // Инициализирует запрос 
+	request.setRequestHeader('Content-type', 'application/json; charset=utf-8'); // Устанавливает значение заголовка HTTP-запроса
+	request.send(); // Отправляет запрос
 
 	//request.addEventListener('readystatechange', () => {
 	request.addEventListener('load', () => {
@@ -29,8 +31,5 @@ inputRub.addEventListener('input', () => {
 	// statusText - not found, OK
 	// response - ответ от сервера
 	// readyState - текущее состояние нашего запроса DONE 
-
-
-
 
 });
