@@ -1,35 +1,56 @@
 "use strict";
 
-const inputRub = document.querySelector('#rub'),
-	inputUsd = document.querySelector('#usd');
+//console.log('Запрос данных...');
 
+//const req = new Promise((resolve, reject) => {
+//	setTimeout(() => {
+//		console.log('Подготовка данных...');
 
+//		const product = {
+//			name: 'TV',
+//			price: '2000'
+//		};
 
-inputRub.addEventListener('input', () => {
-	const request = new XMLHttpRequest();
+//		resolve(product);
 
-	//request.open(method, url, async, login, pass);
+//	}, 2000);
+//});
 
-	// Сходи в магазин
-	request.open('GET', 'js/current.json'); // Инициализирует запрос 
-	request.setRequestHeader('Content-type', 'application/json; charset=utf-8'); // Устанавливает значение заголовка HTTP-запроса
-	request.send(); // Отправляет запрос
+//req.then(product => {
+//	return new Promise((resolve, reject) => {
+//		setTimeout(() => {
+//			product.status = 'order';
+//			//reject();
+//			resolve(product);
+//		}, 2000);
+//	}).then(data => {
+//		data.modify = true;
+//		return data;
+//	}).then(data => {
+//		console.log(data);
+//	}).catch(() => {
+//		console.error('Произошла ошибка');
+//	});
+//}).finally(()=> {
+//	console.log('Finally');
+//});
 
-	//request.addEventListener('readystatechange', () => {
-	request.addEventListener('load', () => {
-		//if (request.readyState === 4 && request.status === 200) {
-		if (request.status === 200) {
-			//console.log(request.response);
-			const data = JSON.parse(request.response);
-			inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-		} else {
-			inputUsd.value = "Что-то пошло не так";
-		}
+const test = time => {
+	return new Promise(resolve => {
+		setTimeout(() => resolve(), time);
 	});
+};
 
-	// status - 404 not found, 200 OK
-	// statusText - not found, OK
-	// response - ответ от сервера
-	// readyState - текущее состояние нашего запроса DONE 
+//test(1000).then(() => { console.log('1000 ms'); });
+//test(2000).then(() => { console.log('2000 ms'); });
 
+//Promise.all([test(1000), test(2000)]).then(() => {
+//	console.log('ALL');
+//});
+
+Promise.race([test(1000), test(2000)]).then(() => {
+	console.log('ALL');
 });
+
+
+
