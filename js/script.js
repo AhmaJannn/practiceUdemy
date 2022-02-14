@@ -246,16 +246,15 @@ window.addEventListener('DOMContentLoaded', () => {
 			statusMessage.style.cssText = `
 				display: block;
 				margin: 0 auto;
-
 			`;
 			//form.append(statusMessage);
 			form.insertAdjacentElement('afterend', statusMessage);
 
-			const request = new XMLHttpRequest();
-			request.open('POST', 'server.php');
+			//const request = new XMLHttpRequest();
+			//request.open('POST', 'server.php');
 
 			//request.setRequestHeader('Content-type', 'multipart/form-data');
-			request.setRequestHeader('Content-type', 'application/json');
+			//request.setRequestHeader('Content-type', 'application/json');
 
 			const formData = new FormData(form);
 
@@ -264,20 +263,34 @@ window.addEventListener('DOMContentLoaded', () => {
 				object[key] = value;
 			});
 
-			const json = JSON.stringify(object);
+			//const json = JSON.stringify(object);
 
-			request.send(json);
-
-			request.addEventListener('load', () => {
-				if (request.status === 200) {
-					console.log(request.response);
+			//request.send(json);
+			fetch('server.php', {
+				method: 'POST',
+				headers: {
+					'Content-type': 'application/json'
+				},
+				body: JSON.stringify(object)
+			}).then(data => data.text())
+				.then(data => {
+					console.log(data);
 					showThanksModal(message.sucsess);
-					form.reset();
 					statusMessage.remove();
-				} else {
+				}).catch(() => {
 					showThanksModal(message.failure);
-				}
-			});
+				}).finally(() => { form.reset(); });
+
+			//request.addEventListener('load', () => {
+			//	if (request.status === 200) {
+			//		console.log(request.response);
+			//		showThanksModal(message.sucsess);
+			//		form.reset();
+			//		statusMessage.remove();
+			//	} else {
+			//		showThanksModal(message.failure);
+			//	}
+			//});
 		});
 	}
 
@@ -303,6 +316,20 @@ window.addEventListener('DOMContentLoaded', () => {
 			closeModal();
 		}, 4000);
 	}
+
+	//fetch('https://jsonplaceholder.typicode.com/posts', {
+	//	method: 'POST',
+	//	body: JSON.stringify({ name: 'Alex' }),
+	//	headers: {
+	//		'Content-type': 'application/json'
+	//	}
+	//})
+	//	.then(response => response.json())
+	//	.then(json => console.log(json));
+
+	//fetch('https://jsonplaceholder.typicode.com/todos/1')
+	//	.then(response => response.json())
+	//	.then(json => console.log(json));
 
 
 
