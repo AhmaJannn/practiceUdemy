@@ -1,56 +1,73 @@
 "use strict";
 
-//console.log('Запрос данных...');
 
-//const req = new Promise((resolve, reject) => {
-//	setTimeout(() => {
-//		console.log('Подготовка данных...');
+// filter - создает новый массив, исключая из старого неподходящие под условия элементы.
+//const names = ['Ivan', 'Ann', 'Ksenia', 'Voldeemart'];
 
-//		const product = {
-//			name: 'TV',
-//			price: '2000'
-//		};
-
-//		resolve(product);
-
-//	}, 2000);
+//const shortName = names.filter((name) => {
+//	return name.length < 5;
 //});
+//console.log(shortName);
 
-//req.then(product => {
-//	return new Promise((resolve, reject) => {
-//		setTimeout(() => {
-//			product.status = 'order';
-//			//reject();
-//			resolve(product);
-//		}, 2000);
-//	}).then(data => {
-//		data.modify = true;
-//		return data;
-//	}).then(data => {
-//		console.log(data);
-//	}).catch(() => {
-//		console.error('Произошла ошибка');
-//	});
-//}).finally(()=> {
-//	console.log('Finally');
-//});
 
-const test = time => {
-	return new Promise(resolve => {
-		setTimeout(() => resolve(), time);
-	});
+// map - создает новый массив, преобразовывая/заменяя элементы старого.
+//const answers = ['IvAn', 'AnnA', 'HeLLo'];
+//let answers = ['IvAn', 'AnnA', 'HeLLo'];
+
+//const result = answers.map(name => name.toLowerCase());
+//answers = answers.map(name => name.toLowerCase()); - плохо для иммутабельности
+
+//console.log(result);
+//console.log(answers);
+
+
+// every / some - возвращают boolean (true/false) 
+// some - хотя бы один элемент
+// every - если все элементы
+
+//const array = [4, 'qwq', 'fqweqfqf'];
+//const array = [4, 12, 42];
+
+//console.log(array.some(element => typeof (element) === 'number'));
+//console.log(array.every(element => typeof (element) === 'number'));
+
+
+// reduce - схлопывание елементов и вовзращение нового значения
+
+const arr = [4, 5, 1, 3, 2, 6];
+//const arr = ['apple', 'plum', 'pear'];
+
+const res = arr.reduce((sum, element) => sum + element);
+//const res = arr.reduce((sum, element) => sum - element, 0);
+// 							0  +  4 - первый элемент не в счёт
+// 							4  +  5
+// 							9  +  1 ....
+//const res = arr.reduce((sum, element) => `${sum}, ${element}`);
+
+console.log(res);
+
+
+//Object.entries - преобразовывает обьект (ключ/значение) в массив массива
+
+const obj = {
+	ann: 'persone',
+	ivan: 'persone',
+	dog: 'animal',
+	cat: 'animal'
 };
 
-//test(1000).then(() => { console.log('1000 ms'); });
-//test(2000).then(() => { console.log('2000 ms'); });
+const newArr = Object.entries(obj);
 
-//Promise.all([test(1000), test(2000)]).then(() => {
-//	console.log('ALL');
-//});
+//const newArr = Object.entries(obj)
+//	.filter(element => element[1] === 'persone')
+//	.map(element => element[0]);
 
-Promise.race([test(1000), test(2000)]).then(() => {
-	console.log('ALL');
-});
+console.log(newArr);
+
+
+
+
+
 
 
 
