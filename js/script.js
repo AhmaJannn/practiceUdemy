@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	function hideTabContent() {
 		tabsContent.forEach(item => {
-			//item.style.display = 'none';
 			item.classList.add('hide');
 			item.classList.remove('show', 'fade');
 		});
@@ -21,7 +20,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function showTabContent(i = 0) {
-		//tabsContent[i].style.display = 'block';
 		tabsContent[i].classList.add('show', 'fade');
 		tabsContent[i].classList.remove('hide');
 		tabs[i].classList.add('tabheader__item_active');
@@ -115,7 +113,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	function openModal() {
 		modalWindow.classList.add('show');
 		modalWindow.classList.remove('hide');
-		//modalWindow.classList.toggle('show');
 		document.body.style.overflow = 'hidden';
 		clearTimeout(modalTimerId);
 	}
@@ -123,7 +120,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	function closeModal() {
 		modalWindow.classList.add('hide');
 		modalWindow.classList.remove('show');
-		//modalWindow.classList.toggle('show');
 		document.body.style.overflow = '';
 	}
 
@@ -195,35 +191,49 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	new MenuCard(
-		"img/tabs/vegy.jpg",
-		"vegy",
-		'Меню "Фитнес"',
-		'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
-		9,
-		'.menu .container',
-	).render();
+	const getResourse = async (url) => {
+		const res = await fetch(url);
 
-	new MenuCard(
-		"img/tabs/elite.jpg",
-		"elite",
-		'Меню "Премиум"',
-		'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
-		20,
-		'.menu .container',
-		'menu__item',
-		'big'
-	).render();
+		if (!res.ok) {
+			throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+		}
 
-	new MenuCard(
-		"img/tabs/post.jpg",
-		"post",
-		'Меню "Постное"',
-		'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-		15,
-		'.menu .container',
-		'menu__item'
-	).render();
+		return await res.json();
+	};
+
+	//getResourse('http://localhost:3000/menu')
+	//	.then(data => {
+	//		data.forEach(({ img, altimg, title, descr, price }) => {
+	//			new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+	//		});
+	//	});
+
+	getResourse('http://localhost:3000/menu')
+		.then(data => createCard(data));
+
+	function createCard(data) {
+		data.forEach(({ img, altimg, title, descr, price }) => {
+			const element = document.createElement('div');
+
+			element.classList.add('menu__item');
+
+			element.innerHTML = `
+			<img src=${img} alt=${altimg}>
+			<h3 class="menu__item-subtitle">${title}</h3>
+			<div class="menu__item-descr">${descr}</div>
+			<div class="menu__item-divider"></div>
+			<div class="menu__item-price">
+				<div class="menu__item-cost">Цена:</div>
+				<div class="menu__item-total"><span>${price}</span> грн/день</div>
+			</div>
+			`;
+
+			document.querySelector('.menu .container').append(element);
+
+		});
+	}
+
+	// Forms
 
 	const forms = document.querySelectorAll('form');
 
@@ -234,10 +244,22 @@ window.addEventListener('DOMContentLoaded', () => {
 	};
 
 	forms.forEach(element => {
-		postData(element);
+		bindPostData(element);
 	});
 
-	function postData(form) {
+	const postData = async (url, data) => {
+		const res = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json'
+			},
+			body: data
+		});
+
+		return await res.json();
+	};
+
+	function bindPostData(form) {
 		form.addEventListener('submit', (e) => {
 			e.preventDefault();
 
@@ -247,32 +269,13 @@ window.addEventListener('DOMContentLoaded', () => {
 				display: block;
 				margin: 0 auto;
 			`;
-			//form.append(statusMessage);
 			form.insertAdjacentElement('afterend', statusMessage);
-
-			//const request = new XMLHttpRequest();
-			//request.open('POST', 'server.php');
-
-			//request.setRequestHeader('Content-type', 'multipart/form-data');
-			//request.setRequestHeader('Content-type', 'application/json');
 
 			const formData = new FormData(form);
 
-			const object = {};
-			formData.forEach(function (value, key) {
-				object[key] = value;
-			});
+			const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-			//const json = JSON.stringify(object);
-
-			//request.send(json);
-			fetch('server.php', {
-				method: 'POST',
-				headers: {
-					'Content-type': 'application/json'
-				},
-				body: JSON.stringify(object)
-			}).then(data => data.text())
+			postData('http://localhost:3000/requests', json)
 				.then(data => {
 					console.log(data);
 					showThanksModal(message.sucsess);
@@ -281,16 +284,6 @@ window.addEventListener('DOMContentLoaded', () => {
 					showThanksModal(message.failure);
 				}).finally(() => { form.reset(); });
 
-			//request.addEventListener('load', () => {
-			//	if (request.status === 200) {
-			//		console.log(request.response);
-			//		showThanksModal(message.sucsess);
-			//		form.reset();
-			//		statusMessage.remove();
-			//	} else {
-			//		showThanksModal(message.failure);
-			//	}
-			//});
 		});
 	}
 
@@ -316,23 +309,5 @@ window.addEventListener('DOMContentLoaded', () => {
 			closeModal();
 		}, 4000);
 	}
-
-	//fetch('https://jsonplaceholder.typicode.com/posts', {
-	//	method: 'POST',
-	//	body: JSON.stringify({ name: 'Alex' }),
-	//	headers: {
-	//		'Content-type': 'application/json'
-	//	}
-	//})
-	//	.then(response => response.json())
-	//	.then(json => console.log(json));
-
-	//fetch('https://jsonplaceholder.typicode.com/todos/1')
-	//	.then(response => response.json())
-	//	.then(json => console.log(json));
-
-	fetch('http://localhost:3000/menu')
-		.then(response => response.json())
-		.then(json => console.log(json));
 
 });
