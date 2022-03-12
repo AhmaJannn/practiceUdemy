@@ -18,13 +18,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	recurse(body);
 
-	fetch('http://localhost:3000/content', {
-		method: 'POST',
-		headers: {
-			'Content-type': 'application/json'
-		},
-		body: JSON.stringify(textNodes)
-	})
-		.then(response => response.json())
-		.then(json => console.log(json));
+	//	fetch('http://localhost:3000/content', {
+	//		method: 'POST',
+	//		headers: {
+	//			'Content-type': 'application/json'
+	//		},
+	//		body: JSON.stringify(textNodes)
+	//	})
+	//		.then(response => response.json())
+	//		.then(json => console.log(json));
+
+	textNodes.forEach(data => {
+		axios({
+			method: 'post',
+			url: 'http://localhost:3000/content',
+			data: data
+		});
+	});
+
+
 });
