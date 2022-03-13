@@ -41,6 +41,113 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
+	// Slider
+
+	const slides = document.querySelectorAll('.offer__slide'),
+		prev = document.querySelector('.offer__slider-prev'),
+		next = document.querySelector('.offer__slider-next'),
+		total = document.querySelector('#total'),
+		current = document.querySelector('#current');
+
+	let slideIndex = 1;
+
+	showSlides(slideIndex);
+
+	if (slides.length < 10) {
+		total.textContent = `0${slides.length}`;
+	} else {
+		total.textContent = slides.length;
+	}
+
+
+	function showSlides(n) {
+		if (n > slides.length) {
+			slideIndex = 1;
+		}
+
+		if (n < 1) {
+			slideIndex = slides.length;
+		}
+
+		slides.forEach((item) => item.style.display = 'none');
+
+		slides[slideIndex - 1].style.display = 'block';
+
+		if (slides.length < 10) {
+			current.textContent = `0${slideIndex}`;
+		} else {
+			current.textContent = slideIndex;
+		}
+	}
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	prev.addEventListener('click', () => {
+		plusSlides(-1);
+	});
+
+	next.addEventListener('click', () => {
+		plusSlides(1);
+	});
+
+
+	//const prevSlide = document.querySelector('.offer__slider-prev'),
+	//	nextSlide = document.querySelector('.offer__slider-next'),
+	//	currentSlide = document.querySelector('#current'),
+	//	slideContent = document.querySelectorAll('.offer__slide');
+
+	//let slide = 0;
+
+	//function hideAllSlideContent() {
+	//	slideContent.forEach(item => {
+	//		item.classList.add('hide');
+	//		item.classList.remove('show');
+	//	});
+	//	currentSlide.innerHTML = `0${slide + 1}`;
+	//}
+
+	//function hideSlideContent() {
+	//	slideContent[slide].classList.add('hide');
+	//	slideContent[slide].classList.remove('show');
+	//}
+
+	//function showSlideContent() {
+	//	slideContent[slide].classList.add('show');
+	//	slideContent[slide].classList.remove('hide');
+	//}
+
+	//hideAllSlideContent();
+	//showSlideContent();
+
+	//nextSlide.addEventListener('click', () => {
+	//	if (slide < 3) {
+	//		hideSlideContent();
+	//		slide++;
+	//		showSlideContent();
+	//		currentSlide.innerHTML = `0${slide + 1}`;
+	//	} else {
+	//		slide = 0;
+	//		hideAllSlideContent();
+	//		showSlideContent();
+	//	}
+	//});
+
+	//prevSlide.addEventListener('click', () => {
+	//	if (slide > 0) {
+	//		hideSlideContent();
+	//		currentSlide.innerHTML = `0${slide}`;
+	//		slide--;
+	//		showSlideContent();
+	//	} else {
+	//		slide = 3;
+	//		hideAllSlideContent();
+	//		showSlideContent();
+	//	}
+	//});
+
+
 	// Timer 
 
 	const deadline = '2022-02-11';
@@ -208,12 +315,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	//		});
 	//	});
 
-	axios.get('http://localhost:3000/menu')
-		.then(data => {
-			data.data.forEach(({ img, altimg, title, descr, price }) => {
-				new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-			});
-		});
+	//axios.get('http://localhost:3000/menu')
+	//	.then(data => {
+	//		data.data.forEach(({ img, altimg, title, descr, price }) => {
+	//			new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+	//		});
+	//	});
 
 	// Forms
 
