@@ -47,110 +47,118 @@ window.addEventListener('DOMContentLoaded', () => {
 		prev = document.querySelector('.offer__slider-prev'),
 		next = document.querySelector('.offer__slider-next'),
 		total = document.querySelector('#total'),
-		current = document.querySelector('#current');
+		current = document.querySelector('#current'),
+		slidesWrapper = document.querySelector('.offer__slider-wrapper'),
+		slidesField = document.querySelector('.offer__slider-inner'),
+		width = window.getComputedStyle(slidesField).width;
 
 	let slideIndex = 1;
+	let offset = 0;
 
-	showSlides(slideIndex);
+
+	console.log(total);
 
 	if (slides.length < 10) {
 		total.textContent = `0${slides.length}`;
+		current.textContent = `0${slideIndex}`;
 	} else {
 		total.textContent = slides.length;
+		current.textContent = slideIndex;
 	}
 
+	slidesField.style.width = 100 * slides.length + '%';
+	slidesField.style.display = 'flex';
+	slidesField.style.transition = '0.5s all';
 
-	function showSlides(n) {
-		if (n > slides.length) {
+	slidesWrapper.style.overflow = 'hidden';
+
+	slides.forEach(slide => {
+		slide.style.width = width;
+	});
+
+	next.addEventListener('click', () => {
+		if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+			offset = 0;
+		} else {
+			offset += +width.slice(0, width.length - 2);
+		}
+
+		slidesField.style.transform = `translateX(-${offset}px)`;
+
+		if (slideIndex == slides.length) {
 			slideIndex = 1;
+		} else {
+			slideIndex++;
 		}
 
-		if (n < 1) {
-			slideIndex = slides.length;
-		}
-
-		slides.forEach((item) => item.style.display = 'none');
-
-		slides[slideIndex - 1].style.display = 'block';
-
-		if (slides.length < 10) {
+		if (slideIndex < 10) {
 			current.textContent = `0${slideIndex}`;
 		} else {
 			current.textContent = slideIndex;
 		}
-	}
 
-	function plusSlides(n) {
-		showSlides(slideIndex += n);
-	}
+	});
 
 	prev.addEventListener('click', () => {
-		plusSlides(-1);
+		if (offset == 0) {
+			offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+		} else {
+			offset -= +width.slice(0, width.length - 2);
+		}
+
+		slidesField.style.transform = `translateX(-${offset}px)`;
+
+		if (slideIndex == 1) {
+			slideIndex = slides.length;
+		} else {
+			slideIndex--;
+		}
+
+		if (slideIndex < 10) {
+			current.textContent = `0${slideIndex}`;
+		} else {
+			current.textContent = slideIndex;
+		}
+
 	});
 
-	next.addEventListener('click', () => {
-		plusSlides(1);
-	});
+	//showSlides(slideIndex);
 
-
-	//const prevSlide = document.querySelector('.offer__slider-prev'),
-	//	nextSlide = document.querySelector('.offer__slider-next'),
-	//	currentSlide = document.querySelector('#current'),
-	//	slideContent = document.querySelectorAll('.offer__slide');
-
-	//let slide = 0;
-
-	//function hideAllSlideContent() {
-	//	slideContent.forEach(item => {
-	//		item.classList.add('hide');
-	//		item.classList.remove('show');
-	//	});
-	//	currentSlide.innerHTML = `0${slide + 1}`;
-	//}
-
-	//function hideSlideContent() {
-	//	slideContent[slide].classList.add('hide');
-	//	slideContent[slide].classList.remove('show');
-	//}
-
-	//function showSlideContent() {
-	//	slideContent[slide].classList.add('show');
-	//	slideContent[slide].classList.remove('hide');
-	//}
-
-	//hideAllSlideContent();
-	//showSlideContent();
-
-	//nextSlide.addEventListener('click', () => {
-	//	if (slide < 3) {
-	//		hideSlideContent();
-	//		slide++;
-	//		showSlideContent();
-	//		currentSlide.innerHTML = `0${slide + 1}`;
-	//	} else {
-	//		slide = 0;
-	//		hideAllSlideContent();
-	//		showSlideContent();
+	//function showSlides(n) {
+	//	if (n > slides.length) {
+	//		slideIndex = 1;
 	//	}
+
+	//	if (n < 1) {
+	//		slideIndex = slides.length;
+	//	}
+
+	//	slides.forEach((item) => item.style.display = 'none');
+
+	//	slides[slideIndex - 1].style.display = 'block';
+
+	//	if (slides.length < 10) {
+	//		current.textContent = `0${slideIndex}`;
+	//	} else {
+	//		current.textContent = slideIndex;
+	//	}
+	//}
+
+	//function plusSlides(n) {
+	//	showSlides(slideIndex += n);
+	//}
+
+	//prev.addEventListener('click', () => {
+	//	plusSlides(-1);
 	//});
 
-	//prevSlide.addEventListener('click', () => {
-	//	if (slide > 0) {
-	//		hideSlideContent();
-	//		currentSlide.innerHTML = `0${slide}`;
-	//		slide--;
-	//		showSlideContent();
-	//	} else {
-	//		slide = 3;
-	//		hideAllSlideContent();
-	//		showSlideContent();
-	//	}
+	//next.addEventListener('click', () => {
+	//	plusSlides(1);
 	//});
-
 
 	// Timer 
 
-	const deadline = '2022-02-11';
+	const deadline = '2022-04-25';
 
 	function getTimeRemaining(endTime) {
 		const t = Date.parse(endTime) - Date.parse(new Date()),
@@ -308,19 +316,12 @@ window.addEventListener('DOMContentLoaded', () => {
 		return await res.json();
 	};
 
-	//getResourse('http://localhost:3000/menu')
-	//	.then(data => {
-	//		data.forEach(({ img, altimg, title, descr, price }) => {
-	//			new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-	//		});
-	//	});
-
-	//axios.get('http://localhost:3000/menu')
-	//	.then(data => {
-	//		data.data.forEach(({ img, altimg, title, descr, price }) => {
-	//			new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-	//		});
-	//	});
+	getResourse('http://localhost:3000/menu')
+		.then(data => {
+			data.forEach(({ img, altimg, title, descr, price }) => {
+				new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+			});
+		});
 
 	// Forms
 
