@@ -1,45 +1,44 @@
 'use strict';
 
-//localStorage.setItem('number', 5);
+//new RegExp('pattern', 'flags');
+// /pattern/f
 
-////localStorage.removeItem('number');
+//const ans = prompt('Введите имя', '');
+//const ans = prompt('Введите числа', '');
 
-//localStorage.clear();
+//const reg = /n/ig;
+//const reg = /\d/g;
+//console.log(reg.test(ans));
+//console.log(ans.match(reg));
 
-//console.log(localStorage.getItem('number'));
+const str = 'My name is R2D2';
 
-const checkbox = document.querySelector('#checkbox'),
-	form = document.querySelector('form'),
-	change = document.querySelector('#color');
+//console.log(str.match(/\w\d\w\d/i));
+console.log(str.match(/\S/ig));
 
-if (localStorage.getItem('isChecked')) {
-	checkbox.checked = true;
-}
+/* Экранирование */
 
-if (localStorage.getItem('bg') === 'changed') {
-	form.style.backgroundColor = 'green';
-}
+// \d - цифры
+// \w - буквы
+// \s - пробелы
 
-checkbox.addEventListener('change', () => {
-	localStorage.setItem('isChecked', true);
-});
+// \D - НЕ цифры
+// \W - НЕ буквы
+// \S - НЕ пробелы
 
-change.addEventListener('click', () => {
-	if (localStorage.getItem('bg') === 'changed') {
-		localStorage.removeItem('bg');
-		form.style.backgroundColor = '#fff';
-	} else {
-		localStorage.setItem('bg', 'changed');
-		form.style.backgroundColor = 'green';
-	}
-});
+/* Флаги */
+//i - Найти в независимости от регистра
+//g - (глобал) найти несколько вхождений
+//m - включает многострочный режим
 
-const user = {
-	name: 'Alex',
-	age: 25
-};
 
-const serializedUser = JSON.stringify(user);
-localStorage.setItem('alex', serializedUser);
+//console.log(ans.search(reg));
+//console.log(ans.match(reg));
 
-console.log(JSON.parse(localStorage.getItem('alex')));
+//const pass = prompt('Password', '');
+
+//console.log(pass.replace(/\./g, "*"));
+
+//console.log('12-34-56'.replace(/-/g, ":"));
+
+
