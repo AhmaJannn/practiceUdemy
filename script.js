@@ -1,68 +1,78 @@
 'use strict';
 
-//function User(name, age) {
-//	this.name = name;
-//	let userAge = age;
-//	//this.age = age;
+//const add = 'test';
 
-//	this.say = function () {
-//		console.log(`Имя пользователя: ${this.name}, возраст: ${userAge}`);
-//	};
+////Вызывается сразу после обьявления
+//(function () {
+//	//здесь находится приватная область видимости
+//}());
 
-//	this.getAge = function () {
-//		return userAge;
-//	};
+//const Module = (function () {
+//	return {
+//		myMethod: function () {
+//			console.log('myMethod был вызван');
+//		},
+//		someOtherMethod: function () {
 
-//	this.setAge = function (age) {
-//		if (typeof age === 'number' && age > 0 && age < 110) {
-//			userAge = age;
-//		} else {
-//			console.log("Недопустимое значение!");
 //		}
 //	};
-//}
+//}());
 
-//const ivan = new User('Ivan', 35);
+//// Вызовем функцию как метод объекта
+//Module.myMethod();
+//Module.someOtherMethod();
 
-//console.log(ivan.name);
-//console.log(ivan.getAge());
+//var Module = (function () {
+//	var privateMethod = function () {
 
-//ivan.setAge(27);
-//ivan.name = 'Alex';
+//	};
+//	return {
+//		publicMethod: function () {
+//			// у этого метода есть доступ к privateMethod, мы можем вызвать его здесь так:
+//			// privateMethod();
+//		}
+//	};
+//})();
 
-//ivan.say(); 
 
-class User {
-	constructor(name, age) {
-		this.name = name;
-		this._age = age;
-	}
+//Вот пример объекта, возвращаемого из IIFE, который содержит общедоступные методы и может обращаться к приватным функциям:
+var Module = (function () {
+	var myModule = {};
+	var _privateMethod = function () {
 
-	#surname = 'Mukhsin-Zade';
+	};
+	myModule.publicMethod = function () {
 
-	say = () => {
-		console.log(`Имя пользователя: ${this.name} ${this.#surname}, возраст: ${this._age}`);
-	}
+	};
+	myModule.anotherPublicMethod = function () {
 
-	get age() {
-		return this._age;
-	}
+	};
+	return myModule; // возвращает объект с общедоступными методами
+})();
 
-	set age(age) {
-		if (typeof age === 'number' && age > 0 && age < 110) {
-			this._age = age;
-		} else {
-			console.log("Недопустимое значение!");
-		}
-	}
-}
+// использование модуля
+Module.publicMethod();
 
-const akhmed = new User('Akhmed', 21);
 
-//console.log(akhmed.age);
-//akhmed.age = 99;
-//console.log(akhmed.age);
 
-console.log(akhmed.surname);
 
-akhmed.say();
+//const number = 1;
+
+//(function () {
+//	let number = 2;
+//	console.log(number);
+//	console.log(number + 3);
+//}());
+
+//console.log(number);
+
+//const user = (function () {
+//	const privat = function () {
+//		console.log('I am privat');
+//	};
+//	return {
+//		sayHello: privat
+//	};
+//}());
+
+//user.sayHello();
