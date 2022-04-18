@@ -1,58 +1,24 @@
-import {Component} from 'react';
+import React from "react";
 import './App.css';
 
-const Header = () => {
-	return <h2>Hello, world!</h2>
+
+// function WhoAmI(props) {
+function WhoAmI({name, surname, link}) {
+  return(
+      <div>
+        <h1>My name is {name()}, surname - {surname}</h1>
+          <a href={link}>My profile</a>
+      </div>
+  )
 }
-
-//const Field = () => {
-//	const holder = 'Enter here';
-//	const styleField = {
-//		width: '300px',
-//	};
-//	return <input 
-//				placeholder={holder} 
-//				type="text" 
-//				style={styleField}
-//			/>
-//}
-
-class Field extends Component {
-	render() {
-		const holder = 'Enter here';
-		const styleField = {
-			width: '300px',
-		};
-		return <input 
-					placeholder={holder} 
-					type="text" 
-					style={styleField}
-				/>
-	}
-}
-
-function Btn() {
-	const text = 'Log in';
-	//const res = () => {
-	//	return 'Log in';
-	//};
-	const logged = true;
-	//const p = <p>Log in</p>
-	return <button>{logged ? 'Enter' : text}</button>
-}
-
 function App() {
   return (
     <div className="App">
-		 <Header/>
-		 <Field/>
-		 <Btn/>
-		 <h1>Hello world what u doing frined</h1>
-		 <h2>Hello world what u doing  in small letters</h2>
-		 <h2>Hello world what u doing  in small letters</h2>
+        <WhoAmI name={() => {return "John"}} surname="Smith" link="facebook.com"/>
+        <WhoAmI name={() => {return "Alex"}} surname="Shepard" link="vk.com"/>
+        {/*<WhoAmI name={{firstname: "Alex"}} surname="Shepard" link="vk.com"/>*/}
     </div>
   );
 }
 
-export {Header};
 export default App;
