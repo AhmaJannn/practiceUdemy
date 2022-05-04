@@ -1,37 +1,34 @@
-'use strict';
+const btn = document.querySelector('.btn'),
+      elem = document.querySelector('.box');  
+let pos = 0;
 
-// function* generator() {
-//     yield 'S';
-//     yield 'c';
-//     yield 'r';
-//     yield 'i';
-//     yield 'p';
-//     yield 't';
+// function myAnimation() {
+//     let pos = 0;
+
+//     const id = setInterval(frame, 10);
+//     function frame() {
+//         if (pos == 300) {
+//             clearInterval(id);
+//         } else {
+//             pos++;
+//             elem.style.top = pos + "px";
+//             elem.style.left = pos + 'px';
+//         }
+//     }
 // }
-//
-// const str = generator();
-//
-// console.log(str.next().value);
-// console.log(str.next());
-// console.log(str.next());
-// console.log(str.next());
-// console.log(str.next());
-// console.log(str.next());
-// console.log(str.next());
 
-function* count(n) {
-    for (let i = 0; i < n; i++){
-        yield i;
+function myAnimation() {
+    pos++;
+    elem.style.top = pos + "px";
+    elem.style.left = pos + 'px';
+
+    if (pos < 300) {
+        requestAnimationFrame(myAnimation);
     }
 }
 
-for (let k of count(7)){
-    console.log(k);
-}
+btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
 
-// const counter = count(7);
-//
-// console.log(counter.next().value);
-// console.log(counter.next().value);
-// console.log(counter.next().value);
+let id = requestAnimationFrame(myAnimation);
+cancelAnimationFrame(id);
 
