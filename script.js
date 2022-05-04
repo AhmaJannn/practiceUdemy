@@ -1,27 +1,18 @@
-'use strict';
+import $ from 'jquery';
 
-// try {
-//     console.log('Normal');
-//     console.log(a);
-//     console.log('result')
-// } catch (error) {
-//     // console.log(error);
-//     console.log(error.name);
-//     console.log(error.message);
-//     console.log(error.stack);
-// } finally {
-//     console.log('xxx');
-// }
-//
-// // console.log(a);
-// console.log('Still normal');
-
-try {
-    document.querySelector('.btn').addEventListener('click', () => {
-        console.log('click');
+$(document).ready(function () {
+    $('.list-item:first').hover(function () {
+        $(this).toggleClass('active');
     });
-} catch (e) {
-    // console.log(e);
-}
 
-console.log('normal');
+    $('.list-item:eq(2)').on('click', function () {
+        $('.image:even').fadeToggle('slow');
+    });
+
+    $('.list-item:eq(4)').on('click', function () {
+        $('.image:odd').animate({
+            opacity: 'toggle',
+            height: 'toggle'
+        }, 2000);
+    });
+});
