@@ -1,34 +1,23 @@
-const btn = document.querySelector('.btn'),
-      elem = document.querySelector('.box');  
-let pos = 0;
+'use strict';
 
-// function myAnimation() {
-//     let pos = 0;
 
-//     const id = setInterval(frame, 10);
-//     function frame() {
-//         if (pos == 300) {
-//             clearInterval(id);
-//         } else {
-//             pos++;
-//             elem.style.top = pos + "px";
-//             elem.style.left = pos + 'px';
-//         }
-//     }
-// }
+setTimeout(() => { console.log('setTimeout') }); // Macrotasks
 
-function myAnimation() {
-    pos++;
-    elem.style.top = pos + "px";
-    elem.style.left = pos + 'px';
+Promise.resolve()
+    .then(() => console.log('Promise resolve')); // microtasks
 
-    if (pos < 300) {
-        requestAnimationFrame(myAnimation);
-    }
-}
+queueMicrotask(() => { console.log('queueMicrotask') }); // microtasks
 
-btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
+Promise.resolve()
+    .then(() => console.log('Promise resolve_2')); // microtasks
 
-let id = requestAnimationFrame(myAnimation);
-cancelAnimationFrame(id);
+console.log('console.log'); // () => {}
 
+
+// () => {}
+// microtasks: then/catch/finally/await
+// render
+// () => {}
+// microtasks: then/catch/finally/await
+// render
+// () => {}
