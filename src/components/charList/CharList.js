@@ -31,24 +31,47 @@ class CharList extends Component {
         this.setState({error: true, loading: false})
     }
 
+    renderItems(arr) {
+        const items = arr.map((item) => {
+
+            let imgStyle = {'objectFit' : 'cover'};
+            if ((item.thumbnail.lastIndexOf("image_not_available") > 0)) {
+                imgStyle = {'objectFit' : 'unset'};
+            }
+
+            return (
+                <li
+                    className="char__item"
+                    key={item.id}
+                    onClick={() => this.props.onCharSelected(item.id)}>
+                    <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
+                    <div className="char__name">{item.name}</div>
+                </li>
+            )
+        });
+        return (
+            <ul className="char__grid">
+                {items}
+            </ul>
+        )
+    }
+
+    content = () => {
+        if (this.state.loading) {
+            return <Spinner />
+        }
+        if ( this.state.error) {
+            return <ErrorMessage />
+        }
+        return (
+            this.renderItems(this.state.charList)
+        )
+    }
 
     render() {
-        const {charList, loading, error} = this.state;
-        const errorMessage = error ? <ErrorMessage /> : null;
-        const spinner = loading ?  <Spinner /> : null;
-        const content = !(loading || error) ? charList.map((item) => {
-            const {id, name, thumbnail} = item;
-            return <CharListItem key={id} name={name} thumbnail={thumbnail} />
-        }) : null;
-
-
         return (
             <div className="char__list">
-                {errorMessage}
-                {spinner}
-                <ul className="char__grid">
-                {content}
-                </ul>
+                {this.content()}
                 <button className="button button__main button__long">
                     <div className="inner">load more</div>
                 </button>
@@ -58,19 +81,5 @@ class CharList extends Component {
 
 }
 
-const CharListItem = ({name, thumbnail}) => {
-
-    let imgStyle = {'objectFit' : 'cover'};
-    if ((thumbnail.lastIndexOf("image_not_available") > 0)) {
-        imgStyle = {'objectFit' : 'unset'};
-    }
-
-    return (
-            <li className="char__item">
-                <img src={thumbnail} alt={name} style={imgStyle}/>
-                <div className="char__name">{name}</div>
-            </li>
-    )
-}
 
 export default CharList;

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="loading random character, realization spinner and error">
+    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="Bug Fixing, Component Lifecycle (Start)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/charList/CharList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/CharList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/MarvelService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MarvelService.js" afterDir="false" />
@@ -34,7 +36,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2BRqfcDCVwWCvE9SRWwTEuWz2UN" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,6 +54,7 @@
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "watcher.settings",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -58,12 +63,23 @@
       <recent name="$PROJECT_DIR$/src/components/errorMessage" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
     <configuration name="RandomChar.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" working-dir="$PROJECT_DIR$/src/components/randomChar">
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="Node.js.RandomChar.js" />
       </list>
     </recent_temporary>
@@ -83,7 +99,7 @@
       <workItem from="1656880215533" duration="989000" />
       <workItem from="1656881291303" duration="19000" />
       <workItem from="1656912332511" duration="6273000" />
-      <workItem from="1657027324947" duration="39966000" />
+      <workItem from="1657027324947" duration="66505000" />
     </task>
     <task id="LOCAL-00001" summary="API services add">
       <created>1656880622578</created>
@@ -106,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657066780271</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Bug Fixing, Component Lifecycle (Start)">
+      <created>1657180920315</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657180920315</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +161,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="API services add" />
     <MESSAGE value="loading random character, realization spinner and error" />
-    <option name="LAST_COMMIT_MESSAGE" value="loading random character, realization spinner and error" />
+    <MESSAGE value="Bug Fixing, Component Lifecycle (Start)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug Fixing, Component Lifecycle (Start)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
