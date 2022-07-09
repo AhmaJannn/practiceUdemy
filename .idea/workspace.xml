@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="componentDidUpdate and realization CharInfo">
-      <change afterPath="$PROJECT_DIR$/src/components/errorBoundary/EerrorBoundary.js" afterDir="false" />
+    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="preventer, component &lt;ErrorBoundary/&gt;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/charList/CharList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/CharList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/MarvelService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MarvelService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/button.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <workItem from="1656880215533" duration="989000" />
       <workItem from="1656881291303" duration="19000" />
       <workItem from="1656912332511" duration="6273000" />
-      <workItem from="1657027324947" duration="72427000" />
+      <workItem from="1657027324947" duration="81036000" />
     </task>
     <task id="LOCAL-00001" summary="API services add">
       <created>1656880622578</created>
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657280086989</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="preventer, component &lt;ErrorBoundary/&gt;">
+      <created>1657308821800</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657308821800</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +175,8 @@
     <MESSAGE value="loading random character, realization spinner and error" />
     <MESSAGE value="Bug Fixing, Component Lifecycle (Start)" />
     <MESSAGE value="componentDidUpdate and realization CharInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="componentDidUpdate and realization CharInfo" />
+    <MESSAGE value="preventer, component &lt;ErrorBoundary/&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="preventer, component &lt;ErrorBoundary/&gt;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
