@@ -9,17 +9,32 @@ class CharList extends Component {
 
     state = {
         charList: [],
+        lock: true,
         loading: true,
         error: false,
         newItemLoading: false,
-        offset: 1552,
+        offset: 210,
         charEnded: false,
     }
 
     marvelService = new MarvelService();
 
     componentDidMount() {
-        this.onRequest();
+        (localStorage.getItem('CharList') === null) ? this.onRequest() : this.getCharLocalStorage();
+    }
+
+    getCharLocalStorage = () => {
+        const rawCharList = localStorage.getItem('CharList');
+        const rawOffset = localStorage.getItem('Offset');
+
+        this.setState({
+            charList: JSON.parse(rawCharList),
+            offset: +rawOffset,
+            loading: false,
+            newItemLoading: false
+        })
+
+        this.renderItems(this.state.charList)
     }
 
     onRequest = (offset) => {
@@ -28,6 +43,8 @@ class CharList extends Component {
             .getAllCharacter(offset)
             .then(this.onCharListLoaded)
             .catch(this.onError)
+
+
     }
 
     onCharListLoading = () => {
@@ -42,7 +59,6 @@ class CharList extends Component {
             ended = true;
         }
 
-
         this.setState(({offset ,charList}) => ({
             charList: [...charList, ...newCharList],
             loading: false,
@@ -50,6 +66,9 @@ class CharList extends Component {
             offset: offset + 9,
             charEnded: ended
         }))
+
+        localStorage.setItem('CharList', JSON.stringify(this.state.charList));
+        localStorage.setItem('Offset', this.state.offset.toString());
     }
 
     onError = () => {
