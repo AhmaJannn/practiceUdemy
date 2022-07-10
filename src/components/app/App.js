@@ -10,7 +10,7 @@ import decoration from '../../resources/img/vision.png';
 class App extends Component {
 
     state = {
-        selectedChar: null
+        selectedChar: undefined
     }
 
     onCharSelected = (id) => {

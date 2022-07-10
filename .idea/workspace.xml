@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="preventer, component &lt;ErrorBoundary/&gt;">
+    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="localStorage char list data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/charList/CharList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/CharList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/MarvelService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MarvelService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/button.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,21 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "watcher.settings",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/errorMessage" />
@@ -97,7 +99,8 @@
       <workItem from="1656880215533" duration="989000" />
       <workItem from="1656881291303" duration="19000" />
       <workItem from="1656912332511" duration="6273000" />
-      <workItem from="1657027324947" duration="81036000" />
+      <workItem from="1657027324947" duration="81120000" />
+      <workItem from="1657360429787" duration="11349000" />
     </task>
     <task id="LOCAL-00001" summary="API services add">
       <created>1656880622578</created>
@@ -141,7 +144,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657308821800</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pagination (button load more)">
+      <created>1657360344139</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657360344139</updated>
+    </task>
+    <task id="LOCAL-00008" summary="localStorage char list data">
+      <created>1657463164018</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657463164018</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +193,9 @@
     <MESSAGE value="Bug Fixing, Component Lifecycle (Start)" />
     <MESSAGE value="componentDidUpdate and realization CharInfo" />
     <MESSAGE value="preventer, component &lt;ErrorBoundary/&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="preventer, component &lt;ErrorBoundary/&gt;" />
+    <MESSAGE value="pagination (button load more)" />
+    <MESSAGE value="localStorage char list data" />
+    <option name="LAST_COMMIT_MESSAGE" value="localStorage char list data" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
