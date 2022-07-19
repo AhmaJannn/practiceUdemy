@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="localStorage char list data">
+    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="check prop types (using PropTypes)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/charList/CharList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/CharList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/charList/charList.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/charList.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +48,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ahmajan/WebstormProjects/React_Marvel&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -100,7 +101,12 @@
       <workItem from="1656881291303" duration="19000" />
       <workItem from="1656912332511" duration="6273000" />
       <workItem from="1657027324947" duration="81120000" />
-      <workItem from="1657360429787" duration="11349000" />
+      <workItem from="1657360429787" duration="12770000" />
+      <workItem from="1657552899588" duration="10112000" />
+      <workItem from="1657666754393" duration="9197000" />
+      <workItem from="1658063934269" duration="1449000" />
+      <workItem from="1658143365901" duration="1000000" />
+      <workItem from="1658166475865" duration="12405000" />
     </task>
     <task id="LOCAL-00001" summary="API services add">
       <created>1656880622578</created>
@@ -158,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657463164018</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="check prop types (using PropTypes)">
+      <created>1657466007005</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657466007005</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +208,8 @@
     <MESSAGE value="preventer, component &lt;ErrorBoundary/&gt;" />
     <MESSAGE value="pagination (button load more)" />
     <MESSAGE value="localStorage char list data" />
-    <option name="LAST_COMMIT_MESSAGE" value="localStorage char list data" />
+    <MESSAGE value="check prop types (using PropTypes)" />
+    <option name="LAST_COMMIT_MESSAGE" value="check prop types (using PropTypes)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
