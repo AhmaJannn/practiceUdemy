@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="replacing class components with functional">
-      <change afterPath="$PROJECT_DIR$/src/hooks/http.hook.js" afterDir="false" />
+    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="added custom hook (useHttp) and optimization service (loading, error)">
+      <change afterPath="$PROJECT_DIR$/src/components/pages/ComicsPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/MainPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appBanner/AppBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appBanner/AppBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appHeader/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appHeader/AppHeader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/charList/CharList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/CharList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/comicsList/ComicsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/comicsList/ComicsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/MarvelService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MarvelService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,23 +50,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/ahmajan/WebstormProjects/React_Marvel",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/usr/local/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ahmajan/WebstormProjects/React_Marvel&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/usr/local/lib/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/errorMessage" />
@@ -113,7 +119,10 @@
       <workItem from="1658143365901" duration="1000000" />
       <workItem from="1658166475865" duration="13129000" />
       <workItem from="1658244261356" duration="88000" />
-      <workItem from="1658313915791" duration="12334000" />
+      <workItem from="1658313915791" duration="32267000" />
+      <workItem from="1658501921666" duration="234000" />
+      <workItem from="1658502220311" duration="102000" />
+      <workItem from="1658506795696" duration="6626000" />
     </task>
     <task id="LOCAL-00001" summary="API services add">
       <created>1656880622578</created>
@@ -185,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658227627037</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added custom hook (useHttp) and optimization service (loading, error)">
+      <created>1658330330120</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1658330330120</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +240,8 @@
     <MESSAGE value="localStorage char list data" />
     <MESSAGE value="check prop types (using PropTypes)" />
     <MESSAGE value="replacing class components with functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="replacing class components with functional" />
+    <MESSAGE value="added custom hook (useHttp) and optimization service (loading, error)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added custom hook (useHttp) and optimization service (loading, error)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

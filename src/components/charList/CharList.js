@@ -45,9 +45,9 @@ const CharList = (props) => {
     }
 
     setCharList((charList) => [...charList, ...newCharList]);
-    setNewItemLoading(false);
     setOffset((offset) => offset + 9);
     setCharEnded(ended);
+    setNewItemLoading(false);
 
     // localStorage.setItem(
     //   "CharList",
@@ -68,8 +68,10 @@ const CharList = (props) => {
 
   function renderItems(arr) {
     const items = arr.map((item, i) => {
+      const { thumbnail, name, id } = item;
+
       let imgStyle = { objectFit: "cover" };
-      if (item.thumbnail.lastIndexOf("image_not_available") > 0) {
+      if (thumbnail.lastIndexOf("image_not_available") > 0) {
         imgStyle = { objectFit: "unset" };
       }
 
@@ -78,20 +80,20 @@ const CharList = (props) => {
           ref={(el) => (itemRefs.current[i] = el)}
           tabIndex={0}
           className="char__item"
-          key={item.id}
+          key={id}
           onClick={() => {
-            props.onCharSelected(item.id);
+            props.onCharSelected(id);
             focusMyRef(i);
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              props.onCharSelected(item.id);
+              props.onCharSelected(id);
               focusMyRef(i);
             }
           }}
         >
-          <img src={item.thumbnail} alt={item.name} style={imgStyle} />
-          <div className="char__name">{item.name}</div>
+          <img src={thumbnail} alt={name} style={imgStyle} />
+          <div className="char__name">{name}</div>
         </li>
       );
     });
