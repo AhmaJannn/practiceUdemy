@@ -38,7 +38,7 @@ const CharList = (props) => {
   //   renderItems(charList);
   // };
 
-  const onCharListLoaded = (newCharList) => {
+  const onCharListLoaded = async (newCharList) => {
     let ended = false;
     if (newCharList.length < 9) {
       ended = true;
