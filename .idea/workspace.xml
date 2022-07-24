@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="added custom hook (useHttp) and optimization service (loading, error)">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/ComicsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/MainPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/index.js" afterDir="false" />
+    <list default="true" id="5e6ebda7-1168-4aaa-84db-7e8ed4a661ee" name="Changes" comment="react router-dom v.5">
+      <change afterPath="$PROJECT_DIR$/src/components/pages/404.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/SingleComicPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appBanner/AppBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appBanner/AppBanner.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/appHeader/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appHeader/AppHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/charList/CharList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/CharList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charInfo/CharInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/comicsList/ComicsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/comicsList/ComicsList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/singleComic/SingleComic.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/singleComic/singleComic.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/singleComicPage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/MarvelService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MarvelService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +34,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/components/app/App.js" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,6 +71,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/pages" />
       <recent name="$PROJECT_DIR$/src/components/errorMessage" />
     </key>
   </component>
@@ -122,7 +125,9 @@
       <workItem from="1658313915791" duration="32267000" />
       <workItem from="1658501921666" duration="234000" />
       <workItem from="1658502220311" duration="102000" />
-      <workItem from="1658506795696" duration="6626000" />
+      <workItem from="1658506795696" duration="9083000" />
+      <workItem from="1658591647506" duration="916000" />
+      <workItem from="1658595960387" duration="13647000" />
     </task>
     <task id="LOCAL-00001" summary="API services add">
       <created>1656880622578</created>
@@ -201,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658330330120</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="react router-dom v.5">
+      <created>1658536899221</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1658536899221</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +253,8 @@
     <MESSAGE value="check prop types (using PropTypes)" />
     <MESSAGE value="replacing class components with functional" />
     <MESSAGE value="added custom hook (useHttp) and optimization service (loading, error)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added custom hook (useHttp) and optimization service (loading, error)" />
+    <MESSAGE value="react router-dom v.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="react router-dom v.5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
